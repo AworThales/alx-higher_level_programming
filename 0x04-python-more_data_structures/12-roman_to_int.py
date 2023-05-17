@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 def to_subtract(list_num):
-    to_subtr = 0
+    to_subs = 0
     max_record = max(list_num)
 
-    for t in list_num:
-        if max_record > t:
-            to_subtr += t
+    for n in list_num:
+        if max_record > n:
+            to_subs += n
 
-    return (max_record - to_subtr)
+    return (max_record - to_subs)
 
 
 def roman_to_int(roman_string):
@@ -17,24 +17,24 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return 0
 
-    roman_numbs = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    list_keys = list(roman_numbs.keys())
+    rom_numbs = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    list_keys = list(rom_numbs.keys())
 
-    numb = 0
-    end_roms = 0
+    nums = 0
+    end_rom = 0
     list_num = [0]
 
     for ch in roman_string:
         for r_num in list_keys:
             if r_num == ch:
-                if roman_numbs.get(ch) <= end_roms:
-                    numb += to_subtract(list_num)
-                    list_num = [roman_numbs.get(ch)]
+                if rom_numbs.get(ch) <= end_rom:
+                    nums += to_subtract(list_num)
+                    list_num = [rom_numbs.get(ch)]
                 else:
-                    list_num.append(roman_numbs.get(ch))
+                    list_num.append(rom_numbs.get(ch))
 
-                end_roms = roman_numbs.get(ch)
+                end_rom = rom_numbs.get(ch)
 
-    numb += to_subtract(list_num)
+    nums += to_subtract(list_num)
 
-    return (numb)
+    return (nums)
